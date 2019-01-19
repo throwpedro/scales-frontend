@@ -1,0 +1,23 @@
+@import '../../Global/_Global.scss';
+
+.scale-list {
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+}
+
+.scale-list-element {
+    color: white;
+    margin-top: 5px;
+    font-size: 24px;
+    &:nth-child(even) {
+        background-color: $colorBlackboard;
+    }
+    &:nth-child(odd) {
+        background-color: $colorTan;
+    }
+}
+
+.scale-list-element-line-through {
+    text-decoration: line-through;
+}
