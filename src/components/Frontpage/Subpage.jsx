@@ -11,7 +11,6 @@ const Subpage = (props) => {
                 </div>
                 <div className="subpage-text-wrapper">
                     <span className="subpage-text"><Link to={props.link}>{props.title}</Link></span>
-                    <Link to="/scales"></Link>
                 </div>
             </div>
         </div>
