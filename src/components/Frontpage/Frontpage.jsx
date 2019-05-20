@@ -1,7 +1,6 @@
 import React from 'react';
 import Subpage from './Subpage';
 import './Frontpage.scss';
-import cmajor from '../../media/c-major-arpeggio.png';
 
 const Frontpage = () => {
     return(
