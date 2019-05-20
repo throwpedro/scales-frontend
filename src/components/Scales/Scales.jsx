@@ -5,7 +5,7 @@ import './Scales.scss';
 class Scales extends Component {
     constructor(props) {
         super(props);
-        
+
         this.state = {
             clickedElements: [],
         };
@@ -26,15 +26,15 @@ class Scales extends Component {
     }
 
     render() {
-        const majorScaleNames = 
+        const majorScaleNames =
         [
             'C Major Scale', 'C# Major Scale', 'D Major Scale',
             'Eb Major Scale', 'E Major Scale', 'F Major Scale',
             'F# Major Scale', 'G Major Scale', 'G# Major Scale',
             'A Major Scale', 'Bb Major Scale', 'B Major Scale'
         ];
-        
-        const harmonicMinorScaleNames = 
+
+        const harmonicMinorScaleNames =
         [
             'C Harmonic Minor Scale', 'C# Harmonic Minor Scale', 'D Harmonic Minor Scale',
             'Eb Harmonic Minor Scale', 'E Harmonic Minor Scale', 'F Harmonic Minor Scale',
@@ -42,7 +42,7 @@ class Scales extends Component {
             'A Harmonic Minor Scale', 'Bb Harmonic Minor Scale', 'B Harmonic Minor Scale'
         ];
 
-        const melodicMinorScaleNames = 
+        const melodicMinorScaleNames =
         [
             'C Melodic Minor Scale', 'C# Melodic Minor Scale', 'D Melodic Minor Scale',
             'Eb Melodic Minor Scale', 'E Melodic Minor Scale', 'F Melodic Minor Scale',
@@ -50,7 +50,7 @@ class Scales extends Component {
             'A Melodic Minor Scale', 'Bb Melodic Minor Scale', 'B Melodic Minor Scale'
         ];
 
-        const majorScaleNamesList = majorScaleNames.map((majorScaleNames, i) => 
+        const majorScaleNamesList = majorScaleNames.map((majorScaleNames, i) =>
             <li
                 className={"scale-list-element" + (this.state.clickedElements.includes(majorScaleNames + i) ? ' scale-list-element-line-through' : '')}  key={majorScaleNames + i}
                 onClick={(e) => this.handleStrikeThrough(majorScaleNames + i)}
@@ -58,8 +58,8 @@ class Scales extends Component {
                 {majorScaleNames}
             </li>
         );
-        const harmonicMinorScaleNamesList = harmonicMinorScaleNames.map((harmonicMinorScaleNames, i) => 
-            <li 
+        const harmonicMinorScaleNamesList = harmonicMinorScaleNames.map((harmonicMinorScaleNames, i) =>
+            <li
                 className={"scale-list-element" + (this.state.clickedElements.includes(harmonicMinorScaleNames + i) ? ' scale-list-element-line-through' : '')}  key={harmonicMinorScaleNames + i}
                 onClick={(e) => this.handleStrikeThrough(harmonicMinorScaleNames + i)}
             >

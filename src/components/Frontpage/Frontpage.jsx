@@ -11,10 +11,8 @@ const Frontpage = () => {
                 <Subpage title='Arpeggios' link='/arpeggios' />
                 <Subpage title='Theory' link='/theory'/>
             </div>
-            <img src={cmajor} alt=""/>
         </div>
     );
-    
 }
 
 export default Frontpage;

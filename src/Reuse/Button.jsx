@@ -3,16 +3,12 @@ import PropTypes from 'prop-types';
 import './Button.scss';
 
 class Button extends Component {
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         return(
             <div  className="btn-wrapper">
                 <div style={{...{backgroundColor: `${this.props.backgroundColor}`},
                              ...{width: `${this.props.width}`},
-                             ...{height: `${this.props.height}`}}} 
+                             ...{height: `${this.props.height}`}}}
                             className="btn" onClick={this.props.onClick}>
                     <span>{this.props.title}</span>
                 </div>
@@ -32,5 +28,5 @@ Button.propTypes = {
 }
 
 Button.defaultProps = {
-    backgroundColor: '#008000',
+    backgroundColor: '#76323F',
 }

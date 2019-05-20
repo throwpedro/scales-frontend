@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types';
 import Scales from '../Scales/Scales';
 import Button from '../../Reuse/Button';
 
@@ -21,25 +20,31 @@ class ScaleSelector extends Component {
     handleToggleMajorScales() {
         this.setState(prevState => ({
             showMajorScales: !prevState.showMajorScales,
+            showHarmonicMinorScales: false,
+            showMelodicMinorScales: false,
         }));
     }
 
     handleToggleHarmonicMinorScales() {
         this.setState(prevState => ({
-            showHarmonicMinorScales: !prevState.showHarmonicMinorScales
+            showHarmonicMinorScales: !prevState.showHarmonicMinorScales,
+            showMajorScales: false,
+            showMelodicMinorScales: false,
         }));
     }
 
     handleToggleMelodicMinorScales() {
         this.setState(prevState => ({
-            showMelodicMinorScales: !prevState.showMelodicMinorScales
+            showMelodicMinorScales: !prevState.showMelodicMinorScales,
+            showMajorScales: false,
+            showHarmonicMinorScales: false,
         }));
     }
 
     render() {
         return(
             <div>
-                <Scales 
+                <Scales
                     showMajorScales={this.state.showMajorScales}
                     showHarmonicMinorScales={this.state.showHarmonicMinorScales}
                     showMelodicMinorScales={this.state.showMelodicMinorScales}

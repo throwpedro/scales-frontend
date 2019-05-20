@@ -8,8 +8,12 @@
 
 .scale-list-element {
     color: white;
+    padding: 5px 0;
+    width: 350px;
     margin-top: 5px;
     font-size: 24px;
+    border-radius: 5px;
+    display: inline-block;
     &:nth-child(even) {
         background-color: $colorBlackboard;
     }
