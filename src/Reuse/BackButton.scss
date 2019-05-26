@@ -1,0 +1,21 @@
+@import "../Global/_Global.scss";
+
+.back-button {
+    width: 15px;
+    height: 15px;
+    margin: auto;
+    margin-top: 10px;
+    text-decoration: none;
+    background-color: $colorBlackboard;
+    padding: 16px 16px;
+    border-radius: 50%;
+    color: white;
+    font-size: 24px;
+    line-height: 10px;
+}
+
+.back-button:hover {
+    background-color: $colorOxblood;
+    color: $colorTan;
+    cursor: pointer;
+}

@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import Scales from '../Scales/Scales';
 import Button from '../../Reuse/Button';
+import BackButton from '../../Reuse/BackButton';
+
 import './ScaleSelector.scss';
 
 class ScaleSelector extends Component {
@@ -11,11 +13,24 @@ class ScaleSelector extends Component {
             showMajorScales: false,
             showHarmonicMinorScales: false,
             showMelodicMinorScales: false,
+            showScaleButtons: true,
+            showBackButton: false,
         }
 
         this.handleToggleMajorScales = this.handleToggleMajorScales.bind(this);
         this.handleToggleHarmonicMinorScales = this.handleToggleHarmonicMinorScales.bind(this);
         this.handleToggleMelodicMinorScales = this.handleToggleMelodicMinorScales.bind(this);
+        this.handleBackButtonClick = this.handleBackButtonClick.bind(this);
+    }
+
+    handleBackButtonClick() {
+        this.setState(prevState => ({
+            showScaleButtons: true,
+            showBackButton: false,
+            showMajorScales: false,
+            showHarmonicMinorScales: false,
+            showMelodicMinorScales: false,
+        }));
     }
 
     handleToggleMajorScales() {
@@ -23,6 +38,8 @@ class ScaleSelector extends Component {
             showMajorScales: !prevState.showMajorScales,
             showHarmonicMinorScales: false,
             showMelodicMinorScales: false,
+            showBackButton: true,
+            showScaleButtons: false,
         }));
     }
 
@@ -31,6 +48,8 @@ class ScaleSelector extends Component {
             showHarmonicMinorScales: !prevState.showHarmonicMinorScales,
             showMajorScales: false,
             showMelodicMinorScales: false,
+            showBackButton: true,
+            showScaleButtons: false,
         }));
     }
 
@@ -39,10 +58,13 @@ class ScaleSelector extends Component {
             showMelodicMinorScales: !prevState.showMelodicMinorScales,
             showMajorScales: false,
             showHarmonicMinorScales: false,
+            showBackButton: true,
+            showScaleButtons: false,
         }));
     }
 
     render() {
+        const {showBackButton, showScaleButtons} = this.state;
         return(
             <div className="scale-selector">
                 <Scales
@@ -50,24 +72,33 @@ class ScaleSelector extends Component {
                     showHarmonicMinorScales={this.state.showHarmonicMinorScales}
                     showMelodicMinorScales={this.state.showMelodicMinorScales}
                 />
-                <Button
-                    width={'250px'}
-                    height={'50px'}
-                    onClick={this.handleToggleMajorScales}
-                    title={'Show major scales'}
-                />
-                <Button
-                    width={'250px'}
-                    height={'50px'}
-                    onClick={this.handleToggleHarmonicMinorScales}
-                    title={'Show harmonic minor scales'}
-                />
-                <Button
-                    width={'250px'}
-                    height={'50px'}
-                    onClick={this.handleToggleMelodicMinorScales}
-                    title={'Show medlodic minor scales'}
-                />
+                { showScaleButtons ?
+                <div>
+                    <Button
+                        width={'250px'}
+                        height={'50px'}
+                        onClick={this.handleToggleMajorScales}
+                        title={'Show major scales'}
+                    />
+                    <Button
+                        width={'250px'}
+                        height={'50px'}
+                        onClick={this.handleToggleHarmonicMinorScales}
+                        title={'Show harmonic minor scales'}
+                    />
+                    <Button
+                        width={'250px'}
+                        height={'50px'}
+                        onClick={this.handleToggleMelodicMinorScales}
+                        title={'Show medlodic minor scales'}
+                    />
+                </div>
+                : null }
+                { showBackButton ?
+                    <BackButton
+                        onClick={this.handleBackButtonClick}
+                    />
+                : null }
             </div>
         );
     }
