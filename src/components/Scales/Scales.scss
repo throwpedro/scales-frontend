@@ -1,9 +1,11 @@
 @import '../../Global/_Global.scss';
 
 .scale-list {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
     list-style-type: none;
     padding: 0;
-    text-align: center;
 }
 
 .scale-list-element {

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Scales from '../Scales/Scales';
 import Button from '../../Reuse/Button';
+import './ScaleSelector.scss';
 
 class ScaleSelector extends Component {
     constructor(props) {
@@ -43,7 +44,7 @@ class ScaleSelector extends Component {
 
     render() {
         return(
-            <div>
+            <div className="scale-selector">
                 <Scales
                     showMajorScales={this.state.showMajorScales}
                     showHarmonicMinorScales={this.state.showHarmonicMinorScales}
