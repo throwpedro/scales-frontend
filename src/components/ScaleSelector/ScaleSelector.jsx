@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import Scales from '../Scales/Scales';
 import Button from '../../Reuse/Button';
 import BackButton from '../../Reuse/BackButton';
-
 import './ScaleSelector.scss';
 
 class ScaleSelector extends Component {
@@ -14,23 +13,29 @@ class ScaleSelector extends Component {
             showHarmonicMinorScales: false,
             showMelodicMinorScales: false,
             showScaleButtons: true,
-            showBackButton: false,
+            showBackToScalesButton: false,
         }
 
         this.handleToggleMajorScales = this.handleToggleMajorScales.bind(this);
         this.handleToggleHarmonicMinorScales = this.handleToggleHarmonicMinorScales.bind(this);
         this.handleToggleMelodicMinorScales = this.handleToggleMelodicMinorScales.bind(this);
-        this.handleBackButtonClick = this.handleBackButtonClick.bind(this);
+        this.handleBackToScalesClick = this.handleBackToScalesClick.bind(this);
+        this.routeChange = this.routeChange.bind(this);
     }
 
-    handleBackButtonClick() {
+    handleBackToScalesClick() {
         this.setState(prevState => ({
             showScaleButtons: true,
-            showBackButton: false,
+            showBackToScalesButton: false,
             showMajorScales: false,
             showHarmonicMinorScales: false,
             showMelodicMinorScales: false,
         }));
+    }
+
+    routeChange() {
+        let path = `/`;
+        this.props.history.push(path);
     }
 
     handleToggleMajorScales() {
@@ -38,7 +43,7 @@ class ScaleSelector extends Component {
             showMajorScales: !prevState.showMajorScales,
             showHarmonicMinorScales: false,
             showMelodicMinorScales: false,
-            showBackButton: true,
+            showBackToScalesButton: true,
             showScaleButtons: false,
         }));
     }
@@ -48,7 +53,7 @@ class ScaleSelector extends Component {
             showHarmonicMinorScales: !prevState.showHarmonicMinorScales,
             showMajorScales: false,
             showMelodicMinorScales: false,
-            showBackButton: true,
+            showBackToScalesButton: true,
             showScaleButtons: false,
         }));
     }
@@ -58,13 +63,13 @@ class ScaleSelector extends Component {
             showMelodicMinorScales: !prevState.showMelodicMinorScales,
             showMajorScales: false,
             showHarmonicMinorScales: false,
-            showBackButton: true,
+            showBackToScalesButton: true,
             showScaleButtons: false,
         }));
     }
 
     render() {
-        const {showBackButton, showScaleButtons} = this.state;
+        const {showBackToScalesButton, showScaleButtons } = this.state;
         return(
             <div className="scale-selector">
                 <Scales
@@ -94,11 +99,15 @@ class ScaleSelector extends Component {
                     />
                 </div>
                 : null }
-                { showBackButton ?
+                { showBackToScalesButton ?
                     <BackButton
-                        onClick={this.handleBackButtonClick}
+                        onClick={this.handleBackToScalesClick}
                     />
-                : null }
+                :
+                    <BackButton
+                        onClick={this.routeChange}
+                    />
+                }
             </div>
         );
     }
